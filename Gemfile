@@ -15,6 +15,8 @@ group :test do
   gem 'rspec', '2.0.0.beta.18'
 end
 
+gem 'heroku'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
