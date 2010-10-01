@@ -1,7 +1,7 @@
 Trackdb::Application.routes.draw do
-  get "pages/home"
-
+  match "/", :to => "pages#home", :via => "get"
   get "pages/contact"
+  get "pages/about"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -60,3 +60,4 @@ Trackdb::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 end
+
