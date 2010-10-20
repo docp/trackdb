@@ -1,7 +1,8 @@
 Trackdb::Application.routes.draw do
-  match "/", :to => "pages#home", :via => "get"
   get "pages/contact"
   get "pages/about"
+  get "pages/help"
+  match "/", :to => "pages#home", :via => "get"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
