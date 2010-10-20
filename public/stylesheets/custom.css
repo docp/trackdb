@@ -2,6 +2,11 @@
   width: 710px;
 }
 
+.round {
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+
 body {
   background: #cdf1ce;
 }
