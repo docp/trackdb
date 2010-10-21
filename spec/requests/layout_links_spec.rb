@@ -1,5 +1,28 @@
 require 'spec_helper'
 
+describe "ClickLinks"do
+
+  before(:each) do
+    @base_title = "Track Database"
+  end
+
+  it "should respond to clicks in the right way" do
+    visit root_path
+    click_link "Help"
+      response.should have_selector('title',
+                                    :content => @base_title +" | Help")
+    click_link "Sign up"
+      response.should have_selector('title',
+                                    :content => @base_title +" | Sign up")
+    click_link "About"
+      response.should have_selector('title',
+                                    :content => @base_title +" | About")
+    click_link "Contact"
+      response.should have_selector('title',
+                                    :content => @base_title +" | Contact")
+    end
+end
+
 describe "LayoutLinks" do
 
   before(:each) do
