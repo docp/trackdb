@@ -20,6 +20,7 @@ group :development, :test do
   gem 'webrat'
   gem 'ZenTest'
   gem 'autotest'
+  gem 'autotest-rails-pure'
   gem 'autotest-notification'
 end
 

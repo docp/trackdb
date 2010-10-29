@@ -1,7 +1,7 @@
 Trackdb::Application.routes.draw do
+resources :users
 
-get "users/new"
-
+#match '/show', :to => 'users#show'
 match '/signup', :to => 'users#new'
 
 match '/about', :to => 'pages#about'

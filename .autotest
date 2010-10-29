@@ -2,5 +2,6 @@ Autotest.add_hook :initialize do |autotest|
   autotest.add_mapping(%r%^spec/(requests)/.*rb$%) do|filename, _|
     filename
   end
+  %w{.git .log vendor tmp log doc}.each {|expr| autotest.add_exception(expr)}
 end
 
