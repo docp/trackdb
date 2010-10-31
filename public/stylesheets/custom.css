@@ -2,6 +2,10 @@
   width: 710px;
 }
 
+.devel_red {
+  background: #ffc7c7;
+}
+
 .round {
   -moz-border-radius: 15px;
   border-radius: 15px;
@@ -25,6 +29,8 @@ section {
   font-size: 120%;
   padding: 20px;
   background: #fff;
+}
+
 }
 
 section h1 {
