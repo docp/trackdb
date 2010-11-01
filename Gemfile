@@ -22,6 +22,7 @@ group :development, :test do
   gem 'autotest'
   gem 'autotest-rails-pure'
   gem 'autotest-notification'
+  gem 'factory_girl_rails', '1.0'
 end
 
 gem 'heroku'
