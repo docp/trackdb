@@ -5,8 +5,8 @@ describe User do
     before(:each) do
 		@attr = { :name => "Max Mustermann",
 		          :email => "max@mustermann.de",
-		          :password => "Geheim",
-		          :password_confirmation => "Geheim" }
+		          :password => "Geheim_Geheim",
+		          :password_confirmation => "Geheim_Geheim" }
 	end
 
 	it "should create new instance given valid attributes" do
@@ -75,6 +75,47 @@ describe User do
       long = "a" * 41
       hash = @attr.merge(:password => long, :password_confirmation => long)
       User.new(hash).should_not be_valid
+    end
+  end
+
+  describe "password encryption" do
+
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+
+    it "should have encrypted password attribute" do
+      @user.should respond_to(:encrypted_password)
+    end
+
+    it "should ensure that the encrypted password is not blank" do
+      @user.encrypted_password.should_not be_blank
+    end
+
+    describe "has_password? method" do
+
+      it "should be true if the passwords match" do
+        @user.has_password?(@attr[:password]).should be_true
+      end
+    end
+
+    describe "authenticate method" do
+
+      it "should return nil on email/password mismatch" do
+        wrong_pw_user = User.authenticate(@attr[:email], "wrong_password")
+        wrong_pw_user.should be_nil
+      end
+
+      it "should return nil for an email address without associated user" do
+        nonexisting_user = User.authenticate("nonexisting@address.zz",
+                                              @attr[:password])
+        nonexisting_user.should be_nil
+      end
+
+      it "should return the user on email/password match" do
+        matching_user = User.authenticate(@attr[:email], @attr[:password])
+        matching_user.should == @user
+      end
     end
   end
 end
