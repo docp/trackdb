@@ -1,6 +1,10 @@
 Trackdb::Application.routes.draw do
-resources :users
 
+resources :users
+resources :sessions, :only => [:new, :create, :destroy]
+
+match '/login', :to => 'sessions#new'
+match 'logout', :to => 'sessions#destroy'
 #match '/show', :to => 'users#show'
 match '/signup', :to => 'users#new'
 

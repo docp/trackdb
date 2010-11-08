@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      login @user
       redirect_to @user
       flash[:success] = "Welcome to the Track Database"
     else

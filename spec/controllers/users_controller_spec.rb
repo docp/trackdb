@@ -102,6 +102,11 @@ describe UsersController do
 #        response.should have_selector(:div,
 #                                  :content => "Welcome to the " + @base_title)
 #      end
+
+      it "should sign created user in" do
+        post :create, :user => @attr
+        controller.should be_logged_in
+      end
     end
   end
 end
